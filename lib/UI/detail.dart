@@ -1,3 +1,4 @@
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_app/DataLayer/Models/pokemon.dart';
 import 'package:pokedex_app/DataLayer/Repository/repository.dart';
@@ -16,17 +17,25 @@ class _DetailState extends State<Detail> {
   double _sizeWidth = 0;
   double _weightSize = 0;
   double _opactiyText = 0;
+  double _opactiyPokemon = 0;
+  double _pokemonSize = 0;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(Duration(seconds: 3), () {
       setState(() {
         _sizeHeight = 200;
         _sizeWidth = 10;
         _weightSize = 20;
         _opactiyText = 1;
+      });
+    });
+    Future.delayed(Duration(seconds: 3), () {
+      setState(() {
+        _opactiyPokemon = 1;
+        _pokemonSize = 200;
       });
     });
   }
@@ -91,14 +100,27 @@ class _DetailState extends State<Detail> {
                         ),
                       ],
                     ),
-                    AnimatedOpacity(
-                      opacity: _opactiyText,
-                      duration: Duration(seconds: 1),
-                      child: Image.network(
-                        'https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.id.toString().padLeft(3, '0')}.png',
-                        height: 200,
-                        width: 200,
-                      ),
+                    Stack(
+                      children: <Widget>[
+                        Container(
+                          height: 200,
+                          width: 200,
+                          child: FlareActor(
+                            'assets/animations/pokeball.flr',
+                            fit: BoxFit.cover,
+                            animation: 'Untitled',
+                          ),
+                        ),
+                        AnimatedOpacity(
+                          opacity: _opactiyPokemon,
+                          duration: Duration(seconds: 1),
+                          child: Image.network(
+                            'https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.id.toString().padLeft(3, '0')}.png',
+                            height: _pokemonSize,
+                            width: _pokemonSize,
+                          ),
+                        ),
+                      ],
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
