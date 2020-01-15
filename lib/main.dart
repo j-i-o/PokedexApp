@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           canvasColor: Color(0xFF4d4646),
+          accentColor: Color(0xFF7fcd91),
           textTheme: TextTheme(
             subhead: TextStyle(color: Color(0xFFf5eaea)),
             caption: TextStyle(color: Color(0xFFf5eaea)),

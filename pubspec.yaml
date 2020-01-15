@@ -28,6 +28,10 @@ dependencies:
 
   flare_flutter: ^1.8.3
 
+  firebase_storage: ^3.1.1
+
+  firebase_core: ^0.4.3+2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

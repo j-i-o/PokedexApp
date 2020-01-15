@@ -176,14 +176,17 @@ class PokemonListTile extends StatelessWidget {
         MaterialPageRoute(
           builder: (context) => Detail(
             id: pokemon.id,
+            name: pokemon.name.english,
+            stats: pokemon.stats,
           ),
         ),
       ),
       title: Text(
           '${pokemon.id.toString().padLeft(3, '0')} - ${pokemon.name.english} '),
       subtitle: pokemon.type.length > 1
-          ? Text('${pokemon.type[0]}, ${pokemon.type[1]}')
-          : Text('${pokemon.type[0]}'),
+          ? Text(
+              '${typeValues.reverse[pokemon.type[0]]}, ${typeValues.reverse[pokemon.type[1]]}')
+          : Text('${typeValues.reverse[pokemon.type[0]]}'),
     );
   }
 }
