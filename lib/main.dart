@@ -9,6 +9,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pokedex',
+      theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            color: Colors.transparent,
+            elevation: 0,
+            textTheme: TextTheme(
+              title: TextStyle(color: Color(0xFFf5eaea), fontSize: 20),
+            ),
+            actionsIconTheme: IconThemeData(
+              color: Color(0xFFf5eaea),
+            ),
+            iconTheme: IconThemeData(
+              color: Color(0xFFf5eaea),
+            ),
+          ),
+          canvasColor: Color(0xFF4d4646),
+          textTheme: TextTheme(
+            subhead: TextStyle(color: Color(0xFFf5eaea)),
+            caption: TextStyle(color: Color(0xFFf5eaea)),
+          )),
       home: HomePage(),
     );
   }
